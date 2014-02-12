@@ -47,7 +47,7 @@ trait Translatable
         return ($translation = $this->getCurrentTranslation()) ?
                 call_user_func(array(
                     $translation,
-                    'get' . ucfirst($method)
+                    ucfirst($method)
                 )) : '';
     }
 
