@@ -14,7 +14,10 @@ class OneLocaleFilter extends SQLFilter
             return "";
         }
 
-        return $targetTableAlias .'.locale = '. $this->getParameter('locale');
+        try {
+            return $targetTableAlias .'.locale = '. $this->getParameter('locale');
+        } catch (\InvalidArgumentException $e) {
+            return '';
+        }
     }
-
 }
